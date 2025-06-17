@@ -102,7 +102,7 @@ function UploadCSV() {
 
       {validRows.length > 0 && (
         <div style={{ marginTop: "2rem" }}>
-          <h3>✅ Parsed Data</h3>
+          <h3>Parsed Data</h3>
           <table border="1" cellPadding="8">
             <thead>
               <tr>
@@ -134,7 +134,10 @@ function UploadCSV() {
                 {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ validRows }),
+                  body: JSON.stringify({
+                    validRows,
+                    filename: fileName,
+                  }),
                 }
               );
 
